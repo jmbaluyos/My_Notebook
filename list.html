@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<title>My NOTEBOOK</title>
+			<link rel = "stylesheet" href = "bootstrap/css/bootstrap.min.css">
+			<script type = "text/javascript" src = "bootstrap/js/jquery-slim.min.js"></script>
+			<script type = "text/javascript" src = "bootstrap/js/popper.min.js"></script>
+			<script type = "text/javascript" src = "bootstrap/js/bootstrap.js"></script>
+			<script type = "text/javascript" src = "ckeditor/ckeditor.js"></script>
+			<link rel = "stylesheet" href = "font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="Codes/css/style.css">
+			<script src="Codes/script/script.js"></script>
+		</head>
+<body class ="bg-warning" onload="enableEditMode();">	
+	<div class ="container-fluid">
+	<nav class="bg-secondary">
+			<a class="nav-link" href="index.html"><i class = "fa fa-arrow-left" style="font-size: 20px; color: white"></i></a>
+	<center><h3>List of notes:</h3></center>
+	<br>
+	</nav>
+	<center><i class = "fa fa-plus-circle" style="font-size: 25px; color: black" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Notes</i></center>
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title">New Notes</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<form>
+				  <div class="form-group">
+					<label class="col-form-label">Title:</label>
+					<input type="text" class="form-control" id="Input" placeholder = "Enter Title Here">
+				  </div>
+				</form>
+				  	<div>
+						<center>
+							<button onclick ="execCmd('bold');"><i class = "fa fa-bold"></i></button>
+							<button onclick ="execCmd('italic');"><i class = "fa fa-italic"></i></button>
+							<button onclick ="execCmd('underline');"><i class = "fa fa-underline"></i></button>
+							<button onclick ="execCmd('justifyLeft');"><i class = "fa fa-align-left"></i></button>
+							<button onclick ="execCmd('justifyCenter');"><i class = "fa fa-align-center"></i></button>
+							<button onclick ="execCmd('justifyRight');"><i class = "fa fa-align-right"></i></button>
+							<button onclick ="execCmd('undo');"><i class = "fa fa-undo"></i></button>
+							<button onclick ="execCmd('redo');"><i class = "fa fa-repeat"></i></button>
+							<button onclick ="execCmd('insertUnorderedList');"><i class = "fa fa-list-ul"></i></button>
+							<button onclick ="execCmd('insertOrderedList');"><i class = "fa fa-list-ol"></i></button>
+						<center>
+					</div>
+					<table>
+					<form>
+					<div class="form-group">
+						<iframe type = "text" class = "form-control" name="ChangeFontWeight"></iframe>
+					</div>
+					</form>
+					</table>
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<span onclick="newElement()" class="addBtn">Save</span>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<ul id="list">
+		
+		</ul>
+	</div>
+	<script type= "text/javascript">
+			function enableEditMode(){
+			ChangeFontWeight.document.designMode = 'On';
+			}
+			function execCmd(command){
+			ChangeFontWeight.document.execCommand(command, false, null);
+			}
+	</script>
+</body>
+</html>
